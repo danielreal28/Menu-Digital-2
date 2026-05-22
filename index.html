@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue House - Menú Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* CONFIGURACIÓN MONITOR TV (16:9) */
+        :root {
+            --kfc-red: #d0021b;
+            --blue-house: #003a63;
+            --accent-yellow: #ffcc00;
+            --bg-clean: #ffffff;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /* CONTENEDOR PRINCIPAL GITHUB PAGES */
+        .slider-wrapper {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background-color: #fff;
+        }
+
+        /* CAPAS DE LOS PANALES */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-clean);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+            z-index: 1;
+        }
+
+        /* PANEL ACTIVO VIA JAVASCRIPT */
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+        }
+
+        /* CABECERA CORPORATIVA DE KICK-OFF */
+        .header-corporate {
+            background-color: var(--kfc-red);
+            height: 15vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4%;
+            border-bottom: 8px solid var(--accent-yellow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .brand-box h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            line-height: 0.9;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .brand-box p {
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+        }
+
+        .header-tag {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: rgba(0,0,0,0.2);
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        /* CONTENIDO DE MENÚ GIGANTE */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            padding: 3% 5%;
+            gap: 5%;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .menu-list-side {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .image-side {
+            flex: 1;
+            height: 100%;
+            max-height: 55vh;
+            border-radius: 25px;
+            overflow: hidden;
+            border: 8px solid #f4f4f4;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            background: #eee;
+            position: relative;
+        }
+
+        /* Simulación de platos con CSS estilizado si no hay red */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #003a63 0%, #001f38 100%);
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .image-placeholder p {
+            font-size: 1.5rem;
+            margin-top: 15px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            color: var(--accent-yellow);
+        }
+
+        /* FILAS DE PRECIOS TIPO KFC */
+        .category-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            color: var(--kfc-red);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            border-left: 12px solid var(--blue-house);
+            padding-left: 20px;
+            line-height: 1;
+        }
+
+        .menu-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh 0;
+            border-bottom: 3px dashed #ddd;
+        }
+
+        .item-info h3 {
+            font-size: 2.3rem;
+            color: #111;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .item-info p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .price-massive {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.8rem;
+            color: var(--kfc-red);
+            font-weight: 900;
+        }
+
+        /* DISEÑO EXCLUSIVO CUADRÍCULA (SLIDE 11 COMO SOLICITASTE) */
+        .menu-grid-guarniciones {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+
+        .grid-card {
+            background: #f8f9fa;
+            border-left: 8px solid var(--kfc-red);
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #222;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* BARRA DE TIEMPO INTERACTIVA */
+        .progress-timeline {
+            height: 1.5vh;
+            background: #e0e0e0;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--blue-house);
+            width: 0%;
+        }
+
+        /* PORTADA DE INICIO */
+        .welcome-slide {
+            background: linear-gradient(rgba(0,58,99,0.85), rgba(0,31,56,0.95));
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-box h2 {
+            font-size: 2.5rem;
+            letter-spacing: 12px;
+            font-weight: 700;
+            color: var(--accent-yellow);
+        }
+
+        .welcome-box h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 7.5rem;
+            text-shadow: 6px 6px 0px var(--kfc-red);
+            margin: 10px 0;
+        }
+
+        .welcome-tag {
+            background: var(--kfc-red);
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-size: 2rem;
+            font-weight: 900;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-wrapper">
+
+    <div class="progress-timeline">
+        <div class="progress-fill" id="progressBar"></div>
+    </div>
+
+    <div class="slide welcome-slide active">
+        <div class="welcome-box">
+            <h2>BIENVENIDOS A</h2>
+            <h1>BLUE HOUSE</h1>
+            <p style="font-size: 1.8rem; letter-spacing: 6px;">BAR AND CLUB CLUB</p>
+            <div class="welcome-tag">MENÚ INTERACTIVO AUTOMÁTICO</div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="header-tag">Sabor Crujiente</div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Alitas Extremas</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Alitas Originales</h3><p>Al natural perfectamente crujientes</p></div>
+                    <div class="price-massive">$12.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Alitas BBQ</h3><p>Bañadas en salsa barbacoa dulce</p></div>
+                    <div class="price-massive">$14.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Alitas Picantes</h3><p>Para los amantes del verdadero picante</p></div>
+                    <div class="price-massive">$14.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-drumstick-bite"></i><p>ALITAS SELECTION</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="header-tag">Especialidades</div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Variedad en Pollo</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pica Pollo</h3><p>Estilo tradicional dominicano</p></div>
+                    <div class="price-massive">$9.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pechurina</h3><p>Tiras de pechuga empanizadas</p></div>
+                    <div class="price-massive">$11.25</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pollo al Horno</h3><p>Asado lento con sazón de la casa</p></div>
+                    <div class="price-massive">$12.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-utensils"></i><p>POLLO AL HORNO</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Carnes Premium</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Cerdo Frito</h3><p>Crujiente por fuera, tierno por dentro</p></div>
+                    <div class="price-massive">$14.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Cerdo al Horno</h3><p>Jugoso corte horneado</p></div>
+                    <div class="price-massive">$15.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Hamburguesa</h3><p>Res de primera con queso fundido</p></div>
+                    <div class="price-massive">$10.99</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-burger"></i><p>BURGER & CERDO</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="header-tag">Para Compartir</div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Burritos & Nachos</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Burrito de Pollo o Res</h3></div>
+                    <div class="price-massive">$11.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Burrito de Camarones</h3></div>
+                    <div class="price-massive">$14.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Nachos (Res / Pollo)</h3></div>
+                    <div class="price-massive">$12.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Nachos de Camarones</h3></div>
+                    <div class="price-massive">$15.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-cheese"></i><p>TEX-MEX STYLE</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Pescado Fresco</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pescado Frito</h3><p>Entero al estilo playero</p></div>
+                    <div class="price-massive">$18.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pescado Salteado</h3><p>Con finas tiras de vegetales</p></div>
+                    <div class="price-massive">$16.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pescado Empanizado</h3><p>Filete crujiente dorado</p></div>
+                    <div class="price-massive">$17.00</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-fish"></i><p>FRESH FISH</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Pastas & Bistec</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pasta de Pollo o Res</h3></div>
+                    <div class="price-massive">$12.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pasta de Camarones</h3></div>
+                    <div class="price-massive">$15.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Bistec Encebollado</h3></div>
+                    <div class="price-massive">$14.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Bistec (Salsa de Hongo / Criolla)</h3></div>
+                    <div class="price-massive">$15.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-bowl-food"></i><p>PASTAS & MEAT</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Especialidades</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Camarones a la Crema / Al Ajillo</h3></div>
+                    <div class="price-massive">$17.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Mofongo de Res o Pollo</h3></div>
+                    <div class="price-massive">$14.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Mofongo de Camarones</h3></div>
+                    <div class="price-massive">$18.00</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-shrimp"></i><p>MARISCOS & MOFONGO</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Pechugas & Filete</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pechuga Empanizada</h3></div>
+                    <div class="price-massive">$13.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pechuga a la Plancha</h3></div>
+                    <div class="price-massive">$12.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pechuga Salteada</h3></div>
+                    <div class="price-massive">$13.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Filete de Cerdo Salteado c/ Vegetales</h3></div>
+                    <div class="price-massive">$15.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-plate-wheat"></i><p>PECHUGAS SÉLECTION</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="header-tag">A Cualquier Hora</div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Tradicionales</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="menu-item-row"><h3>Salami Frito / Guisado</h3><div class="price-massive">$6</div></div>
+                    <div class="menu-item-row"><h3>Jamoneta Frita</h3><div class="price-massive">$6</div></div>
+                    <div class="menu-item-row"><h3>Queso Frito</h3><div class="price-massive">$7</div></div>
+                    <div class="menu-item-row"><h3>Huevo Frito / Salteado</h3><div class="price-massive">$5</div></div>
+                </div>
+                <p style="margin-top: 15px; font-size: 1.5rem; font-weight: bold; color: var(--blue-house); text-transform: uppercase;">
+                    Disponibles: Revoltillo, Tortilla de la casa
+                </p>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-egg"></i><p>DESAYUNOS</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Sándwiches</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Sándwich Cubano</h3><p>El clásico con todo el sabor</p></div>
+                    <div class="price-massive">$8.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Club Sándwich</h3><p>Tres pisos de puro sabor + papas</p></div>
+                    <div class="price-massive">$9.99</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <div class="image-placeholder"><i class="fa-solid fa-bread-slice"></i><p>SANDWICHES</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate">
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="header-tag">Acompañantes</div>
+        </div>
+        <div class="main-content">
+            <div class="menu-list-side" style="flex: 2;">
+                <h2 class="category-title">Guarniciones & Ensaladas</h2>
+                <div class
