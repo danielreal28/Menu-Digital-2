@@ -51,7 +51,7 @@
             display: flex;
             flex-direction: column;
             opacity: 0;
-            display: none; /* Evita que las pantallas invisibles bloqueen el diseño */
+            display: none; 
             transition: opacity 0.8s ease-in-out;
             z-index: 1;
         }
@@ -59,49 +59,77 @@
         /* PANEL ACTIVO */
         .slide.active {
             opacity: 1;
-            display: flex; /* Se muestra solo cuando tiene la clase activa */
+            display: flex; 
             z-index: 2;
         }
 
-        /* CABECERA CORPORATIVA DE KICK-OFF */
+        /* NUEVO TIMBRADO CON FONDO ESTILO COSTEÑO Y PLAYA */
         .header-corporate {
-            background-color: var(--kfc-red);
-            height: 15vh;
+            background: #003a63 url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1280&auto=format&fit=crop') center 35%/cover;
+            height: 16vh;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 4%;
             border-bottom: 8px solid var(--accent-yellow);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Capa oscura para resaltar el texto sobre la playa */
+        .header-corporate::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(0, 58, 99, 0.8) 0%, rgba(0, 0, 0, 0.35) 100%);
+            z-index: 1;
+        }
+
+        /* CUADRO DEL TIMBRADO CENTRAL */
+        .brand-box {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 31, 56, 0.9);
+            padding: 8px 30px;
+            border: 4px solid var(--accent-yellow);
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            text-align: center;
         }
 
         .brand-box h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            line-height: 0.9;
+            font-size: 3rem;
+            line-height: 1;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
         }
 
         .brand-box p {
-            font-size: 1.1rem;
-            letter-spacing: 4px;
+            font-size: 0.95rem;
+            letter-spacing: 5px;
             font-weight: 700;
             color: var(--accent-yellow);
             text-transform: uppercase;
+            margin-top: 3px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
         }
 
         .header-tag {
+            position: relative;
+            z-index: 2;
             color: #fff;
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             font-weight: 900;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.4);
             padding: 10px 25px;
             border-radius: 8px;
             text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         /* CONTENIDO DE MENÚ GIGANTE */
@@ -274,14 +302,14 @@
         <div class="welcome-box">
             <p style="font-size: 2.5rem; letter-spacing: 12px; font-weight: 700; color: var(--accent-yellow);">BIENVENIDOS A</p>
             <h1>BLUE HOUSE</h1>
-            <p style="font-size: 1.8rem; letter-spacing: 6px;">BAR AND CLUB CLUB</p>
+            <p style="font-size: 1.8rem; letter-spacing: 6px;">BAR AND CLOUD</p>
             <div class="welcome-tag">MENÚ DIGITAL AUTOMÁTICO</div>
         </div>
     </div>
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
             <div class="header-tag">Sabor Crujiente</div>
         </div>
         <div class="main-content">
@@ -308,7 +336,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Pollo Frito</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -334,7 +363,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Carnes</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -360,7 +390,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Tex-Mex</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -390,7 +421,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Del Mar</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -416,7 +448,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Cocina</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -446,7 +479,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">La Casa</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -472,7 +506,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">A la Plancha</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -502,7 +537,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Criollo</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -525,7 +561,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Snacks</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -547,7 +584,7 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
             <div class="header-tag">Guarniciones</div>
         </div>
         <div class="main-content">
@@ -569,7 +606,8 @@
 
     <div class="slide">
         <div class="header-corporate">
-            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Club Club</p></div>
+            <div class="brand-box"><h1>BLUE HOUSE</h1><p>Bar and Cloud</p></div>
+            <div class="header-tag">Platillos</div>
         </div>
         <div class="main-content">
             <div class="menu-list-side">
@@ -603,16 +641,16 @@
         const slideInterval = 25000; // 25 Segundos exactos
 
         function changeSlide() {
-            // Ocultar por completo la pantalla actual con clases de control total
+            // Ocultar pantalla actual
             slides[currentSlide].classList.remove("active");
             
-            // Avanzar al siguiente índice
+            // Avanzar al siguiente índice de forma circular
             currentSlide = (currentSlide + 1) % slides.length;
             
-            // Mostrar la nueva pantalla activando su display y opacidad
+            // Mostrar nueva pantalla activa
             slides[currentSlide].classList.add("active");
             
-            // Reiniciar y arrancar la animación de la barra de tiempo
+            // Reiniciar y arrancar línea de tiempo
             resetProgressBar();
         }
 
@@ -620,18 +658,18 @@
             progressBar.style.transition = "none";
             progressBar.style.width = "0%";
             
-            // Forzar renderizado inmediato del navegador
+            // Forzar renderizado
             progressBar.offsetHeight; 
             
-            // Animación de llenado fluido de la barra por 25s
+            // Llenado fluido de barra por 25s
             progressBar.style.transition = `width ${slideInterval}ms linear`;
             progressBar.style.width = "100%";
         }
 
-        // Arrancar la primera barra de progreso al cargar
+        // Iniciar primer ciclo
         resetProgressBar();
 
-        // Ejecutar el intervalo cíclico
+        // Configurar loop infinito del slider
         setInterval(changeSlide, slideInterval);
     });
 </script>
