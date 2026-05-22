@@ -56,17 +56,16 @@
             z-index: 1;
         }
 
-        /* PANEL ACTIVO VIA JS */
+        /* PANEL ACTIVO */
         .slide.active {
             opacity: 1;
             display: flex; 
             z-index: 2;
         }
 
-        /* CABECERA CON EL TIMBRADO ORIGINAL (Mader azul + Playa) */
+        /* CABECERA CON LA IMAGEN DEL TIMBRADO ORIGINAL */
         .header-corporate {
-            /* Usamos tu imagen de branding como fondo de la cabecera */
-            background: url('image_40f994.jpg') center 30%/cover;
+            background: url('image_506746.jpg') center 30%/cover;
             height: 18vh;
             width: 100%;
             display: flex;
@@ -77,15 +76,7 @@
             position: relative;
         }
 
-        /* Capa sutil de overlay si necesitas que el fondo de la playa sea menos brillante para TV */
-        .header-corporate::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        /* CONTENIDO DE MENÚ GIGANTE (ESTILO KFC) */
+        /* CONTENIDO DE MENÚ GIGANTE */
         .main-content {
             flex-grow: 1;
             display: flex;
@@ -112,7 +103,6 @@
             border: 8px solid #f4f4f4;
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
             background: #eee;
-            position: relative;
         }
 
         .image-side img {
@@ -121,7 +111,7 @@
             object-fit: cover;
         }
 
-        /* CATEGORÍAS ESTILO COMERCIAL */
+        /* CATEGORÍAS ESTILO INDUSTRIAL/KFC */
         .category-title {
             background-color: var(--kfc-red);
             color: white;
@@ -187,7 +177,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
-        /* BARRA DE PROGRESO INFERIOR (Mismo JS anterior) */
+        /* BARRA DE PROGRESO INFERIOR */
         .progress-timeline {
             height: 1.5vh;
             background: #e0e0e0;
@@ -204,9 +194,9 @@
             width: 0%;
         }
 
-        /* PANTALLA DE BIENVENIDA COMPLETA CON EL TIMBRADO */
+        /* PANTALLA DE BIENVENIDA COMPLETA */
         .welcome-slide {
-            background: url('image_40f994.jpg') center/cover;
+            background: url('image_506746.jpg') center/cover;
             justify-content: center;
             align-items: center;
         }
@@ -285,10 +275,244 @@
                 </div>
             </div>
             <div class="image-side">
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Hamburguesahttp://googleusercontent.com/image_generation_content/11
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=600&auto=format&fit=crop" alt="Hamburguesa">
+            </div>
+        </div>
+    </div>
 
-Así es, Daniel. He realizado exactamente lo que me pediste. He aquí cómo lo he integrado:
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Tex-Mex</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Burrito Pollo / Res</h3></div>
+                    <div class="price-massive">$11.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Burrito de Camarones</h3></div>
+                    <div class="price-massive">$14.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Nachos Res / Pollo</h3></div>
+                    <div class="price-massive">$12.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Nachos de Camarones</h3></div>
+                    <div class="price-massive">$15.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=600&auto=format&fit=crop" alt="Tex Mex">
+            </div>
+        </div>
+    </div>
 
-He reemplazado la cabecera roja plana que teníamos por **un banner tropical que integra perfectamente la imagen del letrero de madera azul y la playa** de "Blue House" en la parte superior. Además, he configurado el slider para que la primera pantalla del ciclo sea una **portada de bienvenida a pantalla completa**, mostrando únicamente tu imagen de branding.
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Del Mar</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pescado Frito</h3><p>Entero con tostones</p></div>
+                    <div class="price-massive">$18.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pescado Salteado</h3></div>
+                    <div class="price-massive">$16.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Empanizado</h3></div>
+                    <div class="price-massive">$17.00</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=600&auto=format&fit=crop" alt="Pescado">
+            </div>
+        </div>
+    </div>
 
-Ahora el menú digital corporativo (tipo KFC) tiene una identidad 100% "Blue House" y sigue cambiando automáticamente cada **25 segundos**.
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Pastas</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pasta Pollo / Res</h3></div>
+                    <div class="price-massive">$12.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pasta de Camarones</h3></div>
+                    <div class="price-massive">$15.99</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=600&auto=format&fit=crop" alt="Pasta">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Bistec</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Encebollado</h3></div>
+                    <div class="price-massive">$14.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>En Salsa Hongo</h3></div>
+                    <div class="price-massive">$15.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>A la Criolla</h3></div>
+                    <div class="price-massive">$14.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=600&auto=format&fit=crop" alt="Bistec">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Especialidades</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Camarones (Crema / Ajillo)</h3></div>
+                    <div class="price-massive">$17.99</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Mofongo de Res o Pollo</h3></div>
+                    <div class="price-massive">$14.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Mofongo de Camarones</h3></div>
+                    <div class="price-massive">$18.00</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1535473895227-bdecb20fb157?q=80&w=600&auto=format&fit=crop" alt="Mariscos">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Pechugas</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Empanizada / Plancha</h3></div>
+                    <div class="price-massive">$13.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Pechuga Salteada</h3></div>
+                    <div class="price-massive">$13.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Filete de Cerdo Salteado</h3></div>
+                    <div class="price-massive">$15.50</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=600&auto=format&fit=crop" alt="Pechugas">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Tradicionales</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div class="menu-item-row"><h3>Salami / Jamoneta</h3><div class="price-massive">$6</div></div>
+                    <div class="menu-item-row"><h3>Queso Frito</h3><div class="price-massive">$7</div></div>
+                    <div class="menu-item-row"><h3>Huevo Frito/Salteado</h3><div class="price-massive">$5</div></div>
+                    <div class="menu-item-row"><h3>Revoltillo / Tortilla</h3><div class="price-massive">$8</div></div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=600&auto=format&fit=crop" alt="Tradicionales">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side" style="flex: 2;">
+                <h2 class="category-title">Guarniciones</h2>
+                <div class="menu-grid-guarniciones">
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Papa Frita</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Tostones</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Puré de Papa</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Mangú de Plátano</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Papa Salteada</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Vegetales al Vapor</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> Ensalada Verde</div>
+                    <div class="grid-card"><i class="fa-solid fa-circle-arrow-right" style="color:var(--kfc-red); margin-right:10px;"></i> César (Pollo/Res)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="header-corporate"></div>
+        <div class="main-content">
+            <div class="menu-list-side">
+                <h2 class="category-title">Finales</h2>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Arroz Frito / Chofán</h3></div>
+                    <div class="price-massive">$11.00</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Chofán Mixto</h3></div>
+                    <div class="price-massive">$13.50</div>
+                </div>
+                <div class="menu-item-row">
+                    <div class="item-info"><h3>Cazuela de Mariscos</h3></div>
+                    <div class="price-massive">$24.99</div>
+                </div>
+            </div>
+            <div class="image-side">
+                <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?q=80&w=600&auto=format&fit=crop" alt="Mariscos">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".slide");
+        const progressBar = document.getElementById("progressBar");
+        let currentSlide = 0;
+        const slideInterval = 25000; // 25 Segundos exactos por pantalla
+
+        function changeSlide() {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add("active");
+            resetProgressBar();
+        }
+
+        function resetProgressBar() {
+            progressBar.style.transition = "none";
+            progressBar.style.width = "0%";
+            progressBar.offsetHeight; 
+            progressBar.style.transition = `width ${slideInterval}ms linear`;
+            progressBar.style.width = "100%";
+        }
+
+        resetProgressBar();
+        setInterval(changeSlide, slideInterval);
+    });
+</script>
+
+</body>
+</html>
