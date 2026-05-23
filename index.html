@@ -120,7 +120,7 @@
             flex-direction: column;
         }
 
-        /* Cuadro rojo con sombra azul marino icónico - DISEÑO MANTENIDO */
+        /* Cuadro rojo con sombra azul marino icónico */
         .category-header {
             background-color: var(--kfc-red);
             color: white;
@@ -137,7 +137,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Listas de platos limpias y pulcras - DISEÑO MANTENIDO */
+        /* Listas de platos limpias y pulcras */
         .item-list {
             list-style: none;
             display: flex;
@@ -172,21 +172,20 @@
             font-style: italic;
         }
 
-        /* 4. CONTENEDOR DE FOTOS LATERALES - ACTUALIZADO A GRID DE 4 IMÁGENES */
+        /* Contenedor de Fotos Laterales Refinado (Multi-imágenes por slide) */
         .food-photo-container {
             flex: 1.1;
             height: 84vh; 
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-            grid-template-rows: repeat(2, 1fr); /* 2 filas */
-            gap: 15px; /* Espacio entre fotos */
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 15px;
         }
 
-        /* Estilo para las fotos individuales dentro del grid */
         .food-photo-container div {
-            border-radius: 20px; /* Redondeado idéntico al original */
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06); /* Sombra suave per-image */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border: 1px solid #eef2f6;
             height: 100%;
         }
@@ -284,7 +283,7 @@
             <div class="food-photo-container">
                 <div><img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?q=80&w=400&auto=format&fit=crop" alt="Alitas Buffalo"></div>
                 <div><img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?q=80&w=400&auto=format&fit=crop" alt="Alitas BBQ"></div>
-                <div><img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=400&auto=format&fit=crop" alt="Pica Pollo frito dominicano"></div>
+                <div><img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?q=80&w=400&auto=format&fit=crop" alt="Pica Pollo frito"></div>
                 <div><img src="https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?q=80&w=400&auto=format&fit=crop" alt="Pollo asado entero"></div>
             </div>
         </div>
@@ -315,10 +314,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Cerdo frito jugoso"></div>
+                <div><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Carnes Blue House"></div>
                 <div><img src="https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?q=80&w=400&auto=format&fit=crop" alt="Cerdo asado"></div>
-                <div><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=400&auto=format&fit=crop" alt="Filete de cerdo con vegetales"></div>
-                <div><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop" alt="Hamburguesa gourmet con papas"></div>
+                <div><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=400&auto=format&fit=crop" alt="Filete de cerdo salteado"></div>
+                <div><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop" alt="Hamburguesa gourmet"></div>
             </div>
         </div>
     </div>
@@ -342,10 +341,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=400&auto=format&fit=crop" alt="Bistec encebollado jugoso"></div>
-                <div><img src="https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?q=80&w=400&auto=format&fit=crop" alt="Bistec en salsa cremosa de hongos"></div>
-                <div><img src="https://images.unsplash.com/photo-1504973994326-728b783d5402?q=80&w=400&auto=format&fit=crop" alt="Carne de res guisada estilo criollo"></div>
-                <div><img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=400&auto=format&fit=crop" alt="Burrito de pollo grande"></div>
+                <div><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=400&auto=format&fit=crop" alt="Bistec encebollado"></div>
+                <div><img src="https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?q=80&w=400&auto=format&fit=crop" alt="Bistec en salsa de hongos"></div>
+                <div><img src="https://images.unsplash.com/photo-1504973994326-728b783d5402?q=80&w=400&auto=format&fit=crop" alt="Guiso de res"></div>
+                <div><img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=400&auto=format&fit=crop" alt="Burrito de pollo"></div>
             </div>
         </div>
     </div>
@@ -371,9 +370,9 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1628100652755-e46fb790e719?q=80&w=400&auto=format&fit=crop" alt="Mofongo de camarones tradicional"></div>
+                <div><img src="https://images.unsplash.com/photo-1628100652755-e46fb790e719?q=80&w=400&auto=format&fit=crop" alt="Mofongo de camarones"></div>
                 <div><img src="https://images.unsplash.com/photo-1616147498305-6eb7f7b3c2c5?q=80&w=400&auto=format&fit=crop" alt="Mofongo con carne frita"></div>
-                <div><img src="https://images.unsplash.com/photo-1623910903823-bb450b3294c6?q=80&w=400&auto=format&fit=crop" alt="Pechuga de pollo a la plancha grillada"></div>
+                <div><img src="https://images.unsplash.com/photo-1623910903823-bb450b3294c6?q=80&w=400&auto=format&fit=crop" alt="Pechuga de pollo grillada"></div>
                 <div><img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=400&auto=format&fit=crop" alt="Pechuga de pollo empanizada"></div>
             </div>
         </div>
@@ -406,9 +405,9 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1510629903939-f9c349942a4a?q=80&w=400&auto=format&fit=crop" alt="Camarones al ajillo calientes"></div>
+                <div><img src="https://images.unsplash.com/photo-1510629903939-f9c349942a4a?q=80&w=400&auto=format&fit=crop" alt="Camarones al ajillo"></div>
                 <div><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400&auto=format&fit=crop" alt="Pescado frito entero crujiente"></div>
-                <div><img src="https://images.unsplash.com/photo-1600271801401-65fb3706037a?q=80&w=400&auto=format&fit=crop" alt="Filete de pescado empanizado grillado"></div>
+                <div><img src="https://images.unsplash.com/photo-1600271801401-65fb3706037a?q=80&w=400&auto=format&fit=crop" alt="Filete de pescado a la plancha"></div>
                 <div><img src="https://images.unsplash.com/photo-1559742811-82410b510af0?q=80&w=400&auto=format&fit=crop" alt="Cazuela de mariscos variada"></div>
             </div>
         </div>
@@ -435,8 +434,8 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=400&auto=format&fit=crop" alt="Pasta Alfredo cremosa"></div>
-                <div><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400&auto=format&fit=crop" alt="Pasta con camarones y salsa roja"></div>
+                <div><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=400&auto=format&fit=crop" alt="Pasta alfredo cremosa"></div>
+                <div><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400&auto=format&fit=crop" alt="Pasta con camarones"></div>
                 <div><img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=400&auto=format&fit=crop" alt="Nachos Tex-Mex tradicionales"></div>
                 <div><img src="https://images.unsplash.com/photo-1588671607598-a3a80479f6bb?q=80&w=400&auto=format&fit=crop" alt="Nachos gourmet cargados"></div>
             </div>
@@ -465,10 +464,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1629994680880-99933bb5507e?q=80&w=400&auto=format&fit=crop" alt="Queso frito frito y crujiente"></div>
-                <div><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=400&auto=format&fit=crop" alt="Huevos fritos perfectos"></div>
-                <div><img src="https://images.unsplash.com/photo-1598214813160-c3d318357a7d?q=80&w=400&auto=format&fit=crop" alt="Revoltillo de huevos esponjoso"></div>
-                <div><img src="https://images.unsplash.com/photo-1616147498305-6eb7f7b3c2c5?q=80&w=400&auto=format&fit=crop" alt="Antojo frito frito mixto"></div>
+                <div><img src="https://images.unsplash.com/photo-1629994680880-99933bb5507e?q=80&w=400&auto=format&fit=crop" alt="Queso frito frito"></div>
+                <div><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=400&auto=format&fit=crop" alt="Huevos fritos"></div>
+                <div><img src="https://images.unsplash.com/photo-1598214813160-c3d318357a7d?q=80&w=400&auto=format&fit=crop" alt="Huevos revueltos"></div>
+                <div><img src="https://images.unsplash.com/photo-1616147498305-6eb7f7b3c2c5?q=80&w=400&auto=format&fit=crop" alt="Antojo frito frito criollo"></div>
             </div>
         </div>
     </div>
@@ -492,9 +491,9 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=400&auto=format&fit=crop" alt="Arroz frito oriental mixto"></div>
-                <div><img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&auto=format&fit=crop" alt="Sándwich cubano tostado"></div>
-                <div><img src="https://images.unsplash.com/photo-1563379906969-95a2a2f96e42?q=80&w=400&auto=format&fit=crop" alt="Club Sándwich grande"></div>
+                <div><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=400&auto=format&fit=crop" alt="Arroz chofan mixto"></div>
+                <div><img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&auto=format&fit=crop" alt="Sándwich Cubano"></div>
+                <div><img src="https://images.unsplash.com/photo-1563379906969-95a2a2f96e42?q=80&w=400&auto=format&fit=crop" alt="Club Sandwich"></div>
                 <div><img src="https://images.unsplash.com/photo-1596797882833-ccf6e52c8038?q=80&w=400&auto=format&fit=crop" alt="Arroz frito con camarones"></div>
             </div>
         </div>
