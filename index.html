@@ -6,18 +6,19 @@
     <title>Blue House - Menú Digital Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* 1. CONFIGURACIÓN DEL MONITOR (16:9 FULL SCREEN) */
+        /* 1. SETUP DE PANTALLA COMPLETA PROFESIONAL */
         :root {
             --kfc-red: #d0021b;
             --blue-house: #003a63;
             --navy-dark: #001221;
+            --price-black: #1a1a1a;
+            --text-gray: #444444;
+            --bg-clean: #ffffff;
             --accent-yellow: #ffcc00;
-            --white: #ffffff;
-            --slide-speed: 25000ms;
         }
 
         * { 
@@ -34,12 +35,11 @@
             font-family: 'Lato', sans-serif;
         }
 
-        /* 2. SISTEMA DE SLIDER */
         .slider-wrapper {
             width: 100vw;
             height: 100vh;
             position: relative;
-            background-color: var(--white);
+            background-color: var(--bg-clean);
         }
 
         .slide {
@@ -51,7 +51,7 @@
             display: none; 
             flex-direction: column;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             z-index: 1;
         }
 
@@ -61,7 +61,7 @@
             z-index: 2;
         }
 
-        /* 3. BIENVENIDA PREMIUM (FONDO LIMPIO Y PROFESIONAL) */
+        /* 2. BIENVENIDA LIMPIA */
         .welcome-slide {
             background: linear-gradient(135deg, var(--blue-house) 0%, var(--navy-dark) 100%);
             justify-content: center;
@@ -70,13 +70,13 @@
         }
 
         .welcome-container {
-            width: 55%; 
-            padding: 40px;
+            width: 45%; 
+            padding: 30px;
             background: rgba(255, 255, 255, 0.03);
-            border-radius: 30px;
+            border-radius: 25px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
         }
 
         .welcome-container img {
@@ -86,101 +86,116 @@
         }
 
         .welcome-footer {
-            margin-top: 40px;
+            margin-top: 30px;
             color: var(--accent-yellow);
             font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            letter-spacing: 10px;
+            font-size: 1.8rem;
+            letter-spacing: 8px;
             text-transform: uppercase;
-            font-weight: 900;
+            font-weight: 700;
         }
 
-        /* 4. CABECERA GIGANTE PARA EL LOGO (22% de la pantalla) */
+        /* 3. CABECERA REFINADA (Logo corporativo estético) */
         .header-menu {
-            height: 22vh;
+            height: 16vh;
             width: 100%;
             background-color: var(--navy-dark);
-            border-bottom: 8px solid var(--accent-yellow);
+            border-bottom: 5px solid var(--accent-yellow);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 0;
+            padding: 15px 0;
         }
 
         .header-menu img {
-            height: 95%; 
-            max-width: 90%;
+            height: 100%;
+            max-width: 85%;
             object-fit: contain;
         }
 
-        /* 5. CONTENIDO DEL MENÚ */
+        /* 4. ÁREA DE CONTENIDO (ESTILO TABLERO COMERCIAL) */
         .main-content {
             flex-grow: 1;
             display: flex;
-            padding: 40px 80px;
+            padding: 40px 70px;
             gap: 60px;
             align-items: center;
-            background-color: var(--white);
+            background-color: var(--bg-clean);
         }
 
         .menu-list {
-            flex: 1.4;
+            flex: 1.3;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
+        /* Títulos de Categoría más balanceados y limpios */
         .category-header {
-            background-color: var(--kfc-red);
-            color: white;
-            padding: 15px 40px;
+            color: #000;
             font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
+            font-size: 2.6rem;
+            font-weight: 800;
             text-transform: uppercase;
-            margin-bottom: 35px;
-            display: inline-block;
-            box-shadow: 12px 12px 0 var(--blue-house);
-            align-self: flex-start;
-            line-height: 1;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 5px;
         }
 
+        .category-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--kfc-red);
+        }
+
+        /* Filas estilizadas y no tan gigantes */
         .item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 22px 0;
-            border-bottom: 4px dashed #f0f0f0;
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f5;
         }
 
         .item-name h3 {
-            font-size: 3.2rem;
+            font-size: 1.8rem;
             color: #111;
             text-transform: uppercase;
-            font-weight: 900;
-            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.3px;
         }
 
         .item-name p {
-            font-size: 1.4rem;
-            color: #555;
-            font-weight: 700;
-            margin-top: 5px;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            margin-top: 3px;
         }
 
+        /* Precios estilizados estilo Franquicia */
         .price-tag {
             font-family: 'Montserrat', sans-serif;
-            font-size: 5rem;
-            color: var(--kfc-red);
-            font-weight: 900;
+            font-size: 2.2rem;
+            color: var(--price-black);
+            font-weight: 800;
+            background: #f4f6f8;
+            padding: 6px 16px;
+            border-radius: 8px;
         }
 
+        /* Caja de Foto Moderna */
         .food-photo {
-            flex: 1;
-            height: 480px;
-            border-radius: 40px;
+            flex: 1.1;
+            height: 440px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 12px solid #fdfdfd;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
         }
 
         .food-photo img {
@@ -189,10 +204,38 @@
             object-fit: cover;
         }
 
-        /* 6. BARRA DE TIEMPO (25s) */
+        /* GRID PARA GUARNICIONES */
+        .grid-sides {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .side-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 22px 25px;
+            border-radius: 12px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1e293b;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .side-item i {
+            margin-right: 15px;
+            color: var(--blue-house);
+            font-size: 1.3rem;
+        }
+
+        /* BARRA INFERIOR DE TIEMPO DELICADA */
         .progress-bar {
-            height: 14px;
-            background: #e8e8e8;
+            height: 8px;
+            background: #f0f0f0;
             width: 100%;
             position: absolute;
             bottom: 0;
@@ -204,33 +247,6 @@
             height: 100%;
             background: var(--blue-house);
             width: 0%;
-        }
-
-        /* 7. GUARNICIONES GRID */
-        .grid-sides {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            width: 100%;
-        }
-
-        .side-item {
-            background: #f8fbff;
-            border-left: 12px solid var(--kfc-red);
-            padding: 30px;
-            border-radius: 20px;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #222;
-            text-transform: uppercase;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-            display: flex;
-            align-items: center;
-        }
-
-        .side-item i {
-            margin-right: 20px;
-            color: var(--kfc-red);
         }
     </style>
 </head>
@@ -259,11 +275,11 @@
                     <div class="price-tag">$12.99</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Salsa BBQ</h3><p>Bañadas en salsa dulce</p></div>
+                    <div class="item-name"><h3>Salsa BBQ</h3><p>Bañadas en salsa dulce de la casa</p></div>
                     <div class="price-tag">$14.50</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Picantes</h3><p>Con salsa picante de la casa</p></div>
+                    <div class="item-name"><h3>Picantes</h3><p>Con nuestra salsa picante especial</p></div>
                     <div class="price-tag">$14.50</div>
                 </div>
             </div>
@@ -279,7 +295,7 @@
             <div class="menu-list">
                 <h2 class="category-header">Pollo</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Pica Pollo</h3><p>Estilo dominicano crujiente</p></div>
+                    <div class="item-name"><h3>Pica Pollo</h3><p>Estilo dominicano dorado y crujiente</p></div>
                     <div class="price-tag">$9.99</div>
                 </div>
                 <div class="item-row">
@@ -287,7 +303,7 @@
                     <div class="price-tag">$11.25</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Pollo al Horno</h3><p>Sazón casero al horno</p></div>
+                    <div class="item-name"><h3>Pollo al Horno</h3><p>Sazón casero cocinado a fuego lento</p></div>
                     <div class="price-tag">$12.50</div>
                 </div>
             </div>
@@ -303,15 +319,15 @@
             <div class="menu-list">
                 <h2 class="category-header">Carnes</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Cerdo Frito</h3><p>Tierno y bien crujiente</p></div>
+                    <div class="item-name"><h3>Cerdo Frito</h3><p>Tierno por dentro, crujiente por fuera</p></div>
                     <div class="price-tag">$14.00</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Cerdo al Horno</h3><p>Jugoso y bien sazonado</p></div>
+                    <div class="item-name"><h3>Cerdo al Horno</h3><p>Jugoso y sazonado tradicionalmente</p></div>
                     <div class="price-tag">$15.00</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Hamburguesa</h3><p>Con queso fundido y papas</p></div>
+                    <div class="item-name"><h3>Hamburguesa</h3><p>Con queso fundido, vegetales y papas</p></div>
                     <div class="price-tag">$10.99</div>
                 </div>
             </div>
@@ -327,15 +343,15 @@
             <div class="menu-list">
                 <h2 class="category-header">Tex-Mex</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Burritos</h3><p>Pollo, Res o Camarón</p></div>
+                    <div class="item-name"><h3>Burritos</h3><p>Preparados con Pollo, Res o Camarón</p></div>
                     <div class="price-tag">$11.50</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Nachos</h3><p>Con queso y jalapeños</p></div>
+                    <div class="item-name"><h3>Nachos</h3><p>Con abundante queso y jalapeños</p></div>
                     <div class="price-tag">$12.00</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Nachos Camarón</h3><p>Especialidad de la casa</p></div>
+                    <div class="item-name"><h3>Nachos Camarón</h3><p>Especialidad tex-mex premium de la casa</p></div>
                     <div class="price-tag">$15.50</div>
                 </div>
             </div>
@@ -351,11 +367,11 @@
             <div class="menu-list">
                 <h2 class="category-header">Del Mar</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Pescado Frito</h3><p>Entero con tostones</p></div>
+                    <div class="item-name"><h3>Pescado Frito</h3><p>Pescado entero servido con tostones</p></div>
                     <div class="price-tag">$18.99</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Pescado Salteado</h3><p>Filete fresco con vegetales</p></div>
+                    <div class="item-name"><h3>Pescado Salteado</h3><p>Filete fresco salteado con vegetales</p></div>
                     <div class="price-tag">$16.50</div>
                 </div>
             </div>
@@ -371,11 +387,11 @@
             <div class="menu-list">
                 <h2 class="category-header">Bistec</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Encebollado</h3><p>Corte premium jugoso</p></div>
+                    <div class="item-name"><h3>Encebollado</h3><p>Corte premium con cebollas caramelizadas</p></div>
                     <div class="price-tag">$14.99</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>En Salsa Hongo</h3><p>Cremoso y delicioso</p></div>
+                    <div class="item-name"><h3>En Salsa Hongo</h3><p>Bistec tierno en salsa cremosa de hongos</p></div>
                     <div class="price-tag">$15.50</div>
                 </div>
             </div>
@@ -391,11 +407,11 @@
             <div class="menu-list">
                 <h2 class="category-header">Especial</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Mofongo</h3><p>Res, Pollo o Camarón</p></div>
+                    <div class="item-name"><h3>Mofongo</h3><p>A elegir entre Res, Pollo o Camarón</p></div>
                     <div class="price-tag">$14.50</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Camarones</h3><p>Al ajillo o crema</p></div>
+                    <div class="item-name"><h3>Camarones</h3><p>Preparados al ajillo o a la crema</p></div>
                     <div class="price-tag">$17.99</div>
                 </div>
             </div>
@@ -411,12 +427,12 @@
             <div class="menu-list" style="flex:2.5;">
                 <h2 class="category-header">Guarniciones</h2>
                 <div class="grid-sides">
-                    <div class="side-item"><i class="fa-solid fa-circle-check"></i> Papa Frita</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-check"></i> Tostones</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-check"></i> Puré Papa</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-check"></i> Mangú</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-check"></i> Vegetales</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-check"></i> Ensalada</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Papa Frita</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Tostones</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Puré de Papa</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Mangú de Plátano</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Vegetales al Vapor</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Ensalada César</div>
                 </div>
             </div>
         </div>
@@ -428,11 +444,11 @@
             <div class="menu-list">
                 <h2 class="category-header">Finales</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Arroz Chofán</h3><p>Receta especial mixta</p></div>
+                    <div class="item-name"><h3>Arroz Chofán</h3><p>Nuestra receta especial mixta oriental</p></div>
                     <div class="price-tag">$11.00</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Cazuela Mariscos</h3><p>Directo del mar</p></div>
+                    <div class="item-name"><h3>Cazuela de Mariscos</h3><p>Selección premium del mar a la mesa</p></div>
                     <div class="price-tag">$24.99</div>
                 </div>
             </div>
@@ -461,7 +477,7 @@
         function reset() {
             fill.style.transition = "none";
             fill.style.width = "0%";
-            fill.offsetHeight; // Forzar reflow
+            fill.offsetHeight; // Forzar reflow en el navegador
             fill.style.transition = `width ${time}ms linear`;
             fill.style.width = "100%";
         }
