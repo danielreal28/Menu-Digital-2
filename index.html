@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue House - Menú Digital Premium</title>
+    <title>Blue House - Menú Digital Completo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -16,7 +16,7 @@
             --blue-house: #003a63;
             --navy-dark: #001221;
             --text-dark: #111111;
-            --text-gray: #777777;
+            --text-gray: #555555;
             --bg-clean: #ffffff;
             --accent-yellow: #ffcc00;
         }
@@ -61,7 +61,7 @@
             z-index: 2;
         }
 
-        /* 2. BIENVENIDA (ÚNICA CON FONDO OSCURO) */
+        /* 2. BIENVENIDA (ÚNICA CON FONDO OSCURO DE MARCA) */
         .welcome-slide {
             background: linear-gradient(135deg, var(--blue-house) 0%, var(--navy-dark) 100%);
             justify-content: center;
@@ -95,84 +95,91 @@
             font-weight: 800;
         }
 
-        /* 3. ÁREA DE CONTENIDO A PANTALLA COMPLETA (Sin timbrado arriba) */
+        /* 3. ÁREA DE CONTENIDO LIMPIO A PANTALLA COMPLETA */
         .main-content {
             width: 100%;
             height: 100%;
             display: flex;
-            padding: 60px 90px; /* Más espacio a los lados al no tener cabecera */
-            gap: 80px;
+            padding: 50px 80px; 
+            gap: 60px;
             align-items: center;
             background-color: var(--bg-clean);
         }
 
-        .menu-list {
+        .menu-columns {
             flex: 1.4;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            height: 100%;
+            gap: 25px;
         }
 
-        /* Cuadro rojo con sombra de tus ejemplos reales */
+        .menu-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Cuadro rojo con sombra azul marino icónico */
         .category-header {
             background-color: var(--kfc-red);
             color: white;
-            padding: 14px 32px;
+            padding: 10px 24px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.6rem; /* Un poco más grande para llenar la pantalla completa */
+            font-size: 2.1rem; 
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 45px;
+            margin-bottom: 18px;
             display: inline-block;
-            box-shadow: 6px 6px 0 var(--blue-house);
+            box-shadow: 5px 5px 0 var(--blue-house);
             align-self: flex-start;
             line-height: 1;
             letter-spacing: 0.5px;
         }
 
-        /* Filas de platos estéticas */
-        .item-row {
+        /* Listas de platos limpias y pulcras */
+        .item-list {
+            list-style: none;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 0; /* Más separación vertical para que se vea premium */
-            border-bottom: 2px dashed #e2e8f0;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .item-name h3 {
+        .item-element {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.9rem;
+            font-size: 1.6rem;
             color: var(--text-dark);
             text-transform: uppercase;
             font-weight: 800;
             letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
         }
 
-        .item-name p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            font-weight: 500;
-            margin-top: 6px;
-        }
-
-        /* Precios limpios en rojo puro */
-        .price-tag {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.7rem;
+        .item-element i {
             color: var(--kfc-red);
-            font-weight: 900;
-            letter-spacing: -1px;
-            padding-left: 20px;
+            font-size: 1.1rem;
+            margin-right: 12px;
         }
 
-        /* Caja de Foto Gigante a la derecha */
+        .item-subtext {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            font-weight: 700;
+            text-transform: none;
+            margin-left: 5px;
+            font-style: italic;
+        }
+
+        /* Contenedor de Foto Lateral Refinado */
         .food-photo {
             flex: 1.1;
-            height: 80vh; /* Ocupa casi todo el alto de la pantalla de forma equilibrada */
+            height: 84vh; 
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
-            border: 1px solid #eaeaea;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.07);
+            border: 1px solid #eef2f6;
         }
 
         .food-photo img {
@@ -181,20 +188,21 @@
             object-fit: cover;
         }
 
-        /* GRID COMPACTO DE ACOMPAÑANTES */
+        /* GRID ESPECIAL PARA ACOMPAÑANTES Y VEGETALES */
         .grid-sides {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 20px;
             width: 100%;
+            margin-top: 10px;
         }
 
         .side-item {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 26px 30px;
+            padding: 22px 25px;
             border-radius: 16px;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             color: #1e293b;
@@ -205,12 +213,12 @@
         }
 
         .side-item i {
-            margin-right: 18px;
+            margin-right: 15px;
             color: var(--blue-house);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
-        /* BARRA INFERIOR DELICADA */
+        /* BARRA INFERIOR DE PROGRESO DE TIEMPO */
         .progress-bar {
             height: 8px;
             background: #f0f0f0;
@@ -245,147 +253,260 @@
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Carnes</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Cerdo Frito</h3><p>Crujiente y tierno</p></div>
-                    <div class="price-tag">$14.00</div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Alitas</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Originales</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> BBQ</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Picantes</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Cerdo al Horno</h3><p>Jugoso sazón</p></div>
-                    <div class="price-tag">$15.00</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Hamburguesa</h3><p>Con queso y papas</p></div>
-                    <div class="price-tag">$10.99</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Pollo</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pica Pollo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pechurina</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo al Horno</li>
+                    </ul>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop" alt="Carnes Blue House">
+                <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?q=80&w=800&auto=format&fit=crop" alt="Alitas y Pollo frito">
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Bistec</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Encebollado</h3></div>
-                    <div class="price-tag">$14.99</div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Cerdo</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Cerdo al Horno</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>En Salsa Hongo</h3></div>
-                    <div class="price-tag">$15.50</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Filete de Cerdo</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Con Vegetales</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>A la Criolla</h3></div>
-                    <div class="price-tag">$14.50</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Hamburguesa</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Clásica de la Casa</li>
+                    </ul>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop" alt="Bistec Blue House">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Platos de Cerdo y Hamburguesa">
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Aves</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pechuga</h3><p>Corte tierno a la plancha o al gusto</p></div>
-                    <div class="price-tag">$11.95</div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Res (Bistec)</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Encebollado</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> En Salsa de Hongo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Criolla</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pollo</h3><p>Sazón tradicional de la casa</p></div>
-                    <div class="price-tag">$9.99</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Burrito</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Burrito de Pollo</li>
+                    </ul>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop" alt="Aves Blue House">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop" alt="Bistec de Res Premium">
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Del Mar</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Camarones</h3><p>Frescos y seleccionados</p></div>
-                    <div class="price-tag">$16.50</div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Mofongo de</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Salmón</h3><p>Filete premium grillado</p></div>
-                    <div class="price-tag">$18.99</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pescado</h3><p>Fresco del día al gusto</p></div>
-                    <div class="price-tag">$15.75</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Pechuga</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Empanizadas</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Plancha</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteada</li>
+                    </ul>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=800&auto=format&fit=crop" alt="Mariscos Blue House">
+                <img src="https://images.unsplash.com/photo-1632778149955-e80f8ceca318?q=80&w=800&auto=format&fit=crop" alt="Mofongo y Pechuga de Pollo">
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Tradicional</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Mulo Frito</h3><p>Estilo crujiente tradicional</p></div>
-                    <div class="price-tag">$10.25</div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Camarones</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Al Ajillo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Crema</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Puerco Frito</h3><p>Sabor criollo bien dorado</p></div>
-                    <div class="price-tag">$13.50</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Pescado</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pescado Empanizado</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Cerdo</h3><p>Porción clásica sazonada</p></div>
-                    <div class="price-tag">$12.00</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Mariscos</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Cazuela de Marisco</li>
+                    </ul>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Cortes Tradicionales">
+                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=800&auto=format&fit=crop" alt="Pescados y Camarones del Mar">
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Ensaladas</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Berenjena</h3><p>Preparación especial de la casa</p></div>
-                    <div class="price-tag">$8.50</div>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Pasta de</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
+                    </ul>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Ensalada Verde</h3><p>Mix de hojas frescas de temporada</p></div>
-                    <div class="price-tag">$7.99</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Ensalada de Pasta</h3><p>Estilo fría con aderezo premium</p></div>
-                    <div class="price-tag">$9.25</div>
+                <div class="menu-section">
+                    <h2 class="category-header">Nachos de</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
+                    </ul>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Ensaladas Frescas">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=800&auto=format&fit=crop" alt="Pastas Italianas y Nachos Tex-Mex">
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-list" style="flex:2.5;">
-                <h2 class="category-header">Acompañantes</h2>
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Picaderas Fritas</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salami <span class="item-subtext">(Frito / Guisado)</span></li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Jamoneta Frita</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Queso Frito</li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h2 class="category-header">Huevo</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Revoltillo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Tortilla</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="food-photo">
+                <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=800&auto=format&fit=crop" alt="Queso frito y Huevos">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Sándwich</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Cubano</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Clud Sandwich</li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h2 class="category-header">Especialidades de Arroz</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Arroz Frito</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Chofan <span class="item-subtext">(Mixto / Res / Pollo)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="food-photo">
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800&auto=format&fit=crop" alt="Arroz Chofan y Sandwiches">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-columns">
+                <div class="menu-section">
+                    <h2 class="category-header">Ensaladas</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Ensalada Verde</li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h2 class="category-header">Ensalada César de</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
+                    </ul>
+                </div>
+                <div class="menu-section">
+                    <h2 class="category-header">Vegetales</h2>
+                    <ul class="item-list">
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Al Vapor</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="food-photo">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Ensaladas Frescas y Vegetales">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-columns" style="flex:2.5;">
+                <h2 class="category-header">Acompañantes / Side Dishes</h2>
                 <div class="grid-sides">
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Mangú</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Guandules</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Arroz Blanco</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Habichuelas</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Papa Frita</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Tostones</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Puré de Papa</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Mangú de Plátano</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Papá Salteada</div>
                 </div>
             </div>
         </div>
@@ -410,7 +531,7 @@
         function reset() {
             fill.style.transition = "none";
             fill.style.width = "0%";
-            fill.offsetHeight; 
+            fill.offsetHeight; // Forzar reflow del navegador
             fill.style.transition = `width ${time}ms linear`;
             fill.style.width = "100%";
         }
