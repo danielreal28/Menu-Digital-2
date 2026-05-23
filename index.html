@@ -6,18 +6,17 @@
     <title>Blue House - Menú Digital Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* 1. SETUP DE PANTALLA COMPLETA PROFESIONAL */
+        /* 1. SETUP DE PANTALLA COMPLETA TOTAL */
         :root {
             --kfc-red: #d0021b;
             --blue-house: #003a63;
             --navy-dark: #001221;
-            --price-black: #1a1a1a;
-            --text-dark: #222222;
-            --text-gray: #666666;
+            --text-dark: #111111;
+            --text-gray: #777777;
             --bg-clean: #ffffff;
             --accent-yellow: #ffcc00;
         }
@@ -62,7 +61,7 @@
             z-index: 2;
         }
 
-        /* 2. BIENVENIDA LIMPIA */
+        /* 2. BIENVENIDA (ÚNICA CON FONDO OSCURO) */
         .welcome-slide {
             background: linear-gradient(135deg, var(--blue-house) 0%, var(--navy-dark) 100%);
             justify-content: center;
@@ -96,70 +95,53 @@
             font-weight: 800;
         }
 
-        /* 3. CABECERA REFINADA */
-        .header-menu {
-            height: 16vh;
-            width: 100%;
-            background-color: var(--navy-dark);
-            border-bottom: 5px solid var(--accent-yellow);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .header-menu img {
-            height: 100%;
-            max-width: 85%;
-            object-fit: contain;
-        }
-
-        /* 4. ÁREA DE CONTENIDO (ESTILO TABLERO COMERCIAL) */
+        /* 3. ÁREA DE CONTENIDO A PANTALLA COMPLETA (Sin timbrado arriba) */
         .main-content {
-            flex-grow: 1;
+            width: 100%;
+            height: 100%;
             display: flex;
-            padding: 40px 70px;
-            gap: 60px;
+            padding: 60px 90px; /* Más espacio a los lados al no tener cabecera */
+            gap: 80px;
             align-items: center;
             background-color: var(--bg-clean);
         }
 
         .menu-list {
-            flex: 1.3;
+            flex: 1.4;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        /* El cuadro rojo de los títulos regresó con fuerza */
+        /* Cuadro rojo con sombra de tus ejemplos reales */
         .category-header {
             background-color: var(--kfc-red);
             color: white;
-            padding: 10px 25px;
+            padding: 14px 32px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.3rem;
+            font-size: 2.6rem; /* Un poco más grande para llenar la pantalla completa */
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 45px;
             display: inline-block;
-            box-shadow: 8px 8px 0 var(--blue-house);
+            box-shadow: 6px 6px 0 var(--blue-house);
             align-self: flex-start;
             line-height: 1;
-            letter-spacing: -0.5px;
+            letter-spacing: 0.5px;
         }
 
-        /* Diseño profesional y balanceado para los platos */
+        /* Filas de platos estéticas */
         .item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0;
-            border-bottom: 1px solid #f1f5f9;
+            padding: 22px 0; /* Más separación vertical para que se vea premium */
+            border-bottom: 2px dashed #e2e8f0;
         }
 
         .item-name h3 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: var(--text-dark);
             text-transform: uppercase;
             font-weight: 800;
@@ -167,32 +149,29 @@
         }
 
         .item-name p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-gray);
-            font-style: italic;
-            font-weight: 400;
-            margin-top: 4px;
+            font-weight: 500;
+            margin-top: 6px;
         }
 
-        /* Precios limpios estilo Franquicia */
+        /* Precios limpios en rojo puro */
         .price-tag {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.1rem;
-            color: var(--price-black);
+            font-size: 2.7rem;
+            color: var(--kfc-red);
             font-weight: 900;
-            background: #f1f5f9;
-            padding: 6px 18px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            letter-spacing: -1px;
+            padding-left: 20px;
         }
 
-        /* Caja de Foto Moderna */
+        /* Caja de Foto Gigante a la derecha */
         .food-photo {
             flex: 1.1;
-            height: 440px;
-            border-radius: 20px;
+            height: 80vh; /* Ocupa casi todo el alto de la pantalla de forma equilibrada */
+            border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.08);
             border: 1px solid #eaeaea;
         }
 
@@ -202,36 +181,36 @@
             object-fit: cover;
         }
 
-        /* GRID PARA GUARNICIONES */
+        /* GRID COMPACTO DE ACOMPAÑANTES */
         .grid-sides {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 25px;
             width: 100%;
         }
 
         .side-item {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 22px 25px;
-            border-radius: 12px;
-            font-size: 1.6rem;
+            padding: 26px 30px;
+            border-radius: 16px;
+            font-size: 1.7rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             color: #1e293b;
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
         }
 
         .side-item i {
-            margin-right: 15px;
-            color: var(--kfc-red);
-            font-size: 1.3rem;
+            margin-right: 18px;
+            color: var(--blue-house);
+            font-size: 1.4rem;
         }
 
-        /* BARRA INFERIOR DE TIEMPO DELICADA */
+        /* BARRA INFERIOR DELICADA */
         .progress-bar {
             height: 8px;
             background: #f0f0f0;
@@ -261,198 +240,153 @@
         <div class="welcome-container">
             <img src="image_506746.jpg" alt="Bienvenidos a Blue House">
         </div>
-        <div class="welcome-footer">Bar and Club</div>
+        <div class="welcome-footer">Bar and Restaurante</div>
     </div>
 
     <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
-        <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Alitas</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Originales</h3><p>Crujientes al natural</p></div>
-                    <div class="price-tag">$12.99</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Salsa BBQ</h3><p>Bañadas en salsa dulce de la casa</p></div>
-                    <div class="price-tag">$14.50</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Picantes</h3><p>Con nuestra salsa picante especial</p></div>
-                    <div class="price-tag">$14.50</div>
-                </div>
-            </div>
-            <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?q=80&w=800&auto=format&fit=crop" alt="Alitas Buffalo">
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
-        <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Pollo</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pica Pollo</h3><p>Estilo dominicano dorado y crujiente</p></div>
-                    <div class="price-tag">$9.99</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pechurina</h3><p>Tiras de pechuga empanizadas</p></div>
-                    <div class="price-tag">$11.25</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pollo al Horno</h3><p>Sazón casero cocinado a fuego lento</p></div>
-                    <div class="price-tag">$12.50</div>
-                </div>
-            </div>
-            <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop" alt="Pica Pollo">
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
         <div class="main-content">
             <div class="menu-list">
                 <h2 class="category-header">Carnes</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Cerdo Frito</h3><p>Tierno por dentro, crujiente por fuera</p></div>
+                    <div class="item-name"><h3>Cerdo Frito</h3><p>Crujiente y tierno</p></div>
                     <div class="price-tag">$14.00</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Cerdo al Horno</h3><p>Jugoso y sazonado tradicionalmente</p></div>
+                    <div class="item-name"><h3>Cerdo al Horno</h3><p>Jugoso sazón</p></div>
                     <div class="price-tag">$15.00</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Hamburguesa</h3><p>Con queso fundido, vegetales y papas</p></div>
+                    <div class="item-name"><h3>Hamburguesa</h3><p>Con queso y papas</p></div>
                     <div class="price-tag">$10.99</div>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop" alt="Hamburguesa y Cerdo">
+                <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?q=80&w=800&auto=format&fit=crop" alt="Carnes Blue House">
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
-        <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Tex-Mex</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Burritos</h3><p>Preparados con Pollo, Res o Camarón</p></div>
-                    <div class="price-tag">$11.50</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Nachos</h3><p>Con abundante queso y jalapeños</p></div>
-                    <div class="price-tag">$12.00</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Nachos Camarón</h3><p>Especialidad tex-mex premium de la casa</p></div>
-                    <div class="price-tag">$15.50</div>
-                </div>
-            </div>
-            <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=800&auto=format&fit=crop" alt="Nachos Gourmet">
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
-        <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Del Mar</h2>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pescado Frito</h3><p>Pescado entero servido con tostones</p></div>
-                    <div class="price-tag">$18.99</div>
-                </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Pescado Salteado</h3><p>Filete fresco salteado con vegetales</p></div>
-                    <div class="price-tag">$16.50</div>
-                </div>
-            </div>
-            <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=800&auto=format&fit=crop" alt="Pescado Frito">
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
         <div class="main-content">
             <div class="menu-list">
                 <h2 class="category-header">Bistec</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Encebollado</h3><p>Corte premium con cebollas caramelizadas</p></div>
+                    <div class="item-name"><h3>Encebollado</h3></div>
                     <div class="price-tag">$14.99</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>En Salsa Hongo</h3><p>Bistec tierno en salsa cremosa de hongos</p></div>
+                    <div class="item-name"><h3>En Salsa Hongo</h3></div>
                     <div class="price-tag">$15.50</div>
                 </div>
-            </div>
-            <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop" alt="Bistec Encebollado">
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
-        <div class="main-content">
-            <div class="menu-list">
-                <h2 class="category-header">Especial</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Mofongo</h3><p>A elegir entre Res, Pollo o Camarón</p></div>
+                    <div class="item-name"><h3>A la Criolla</h3></div>
                     <div class="price-tag">$14.50</div>
                 </div>
-                <div class="item-row">
-                    <div class="item-name"><h3>Camarones</h3><p>Preparados al ajillo o a la crema</p></div>
-                    <div class="price-tag">$17.99</div>
-                </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1535473895227-bdecb20fb157?q=80&w=800&auto=format&fit=crop" alt="Mofongo Camarón">
+                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800&auto=format&fit=crop" alt="Bistec Blue House">
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
-        <div class="main-content">
-            <div class="menu-list" style="flex:2.5;">
-                <h2 class="category-header">Guarniciones</h2>
-                <div class="grid-sides">
-                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Papa Frita</div>
-                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Tostones</div>
-                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Puré de Papa</div>
-                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Mangú de Plátano</div>
-                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Vegetales al Vapor</div>
-                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Ensalada César</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide">
-        <div class="header-menu"><img src="image_506746.jpg" alt="Logo Blue House"></div>
         <div class="main-content">
             <div class="menu-list">
-                <h2 class="category-header">Finales</h2>
+                <h2 class="category-header">Aves</h2>
                 <div class="item-row">
-                    <div class="item-name"><h3>Arroz Chofán</h3><p>Nuestra receta especial mixta oriental</p></div>
-                    <div class="price-tag">$11.00</div>
+                    <div class="item-name"><h3>Pechuga</h3><p>Corte tierno a la plancha o al gusto</p></div>
+                    <div class="price-tag">$11.95</div>
                 </div>
                 <div class="item-row">
-                    <div class="item-name"><h3>Cazuela de Mariscos</h3><p>Selección premium del mar a la mesa</p></div>
-                    <div class="price-tag">$24.99</div>
+                    <div class="item-name"><h3>Pollo</h3><p>Sazón tradicional de la casa</p></div>
+                    <div class="price-tag">$9.99</div>
                 </div>
             </div>
             <div class="food-photo">
-                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=800&auto=format&fit=crop" alt="Arroz Mixto">
+                <img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=800&auto=format&fit=crop" alt="Aves Blue House">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-list">
+                <h2 class="category-header">Del Mar</h2>
+                <div class="item-row">
+                    <div class="item-name"><h3>Camarones</h3><p>Frescos y seleccionados</p></div>
+                    <div class="price-tag">$16.50</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-name"><h3>Salmón</h3><p>Filete premium grillado</p></div>
+                    <div class="price-tag">$18.99</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-name"><h3>Pescado</h3><p>Fresco del día al gusto</p></div>
+                    <div class="price-tag">$15.75</div>
+                </div>
+            </div>
+            <div class="food-photo">
+                <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?q=80&w=800&auto=format&fit=crop" alt="Mariscos Blue House">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-list">
+                <h2 class="category-header">Tradicional</h2>
+                <div class="item-row">
+                    <div class="item-name"><h3>Mulo Frito</h3><p>Estilo crujiente tradicional</p></div>
+                    <div class="price-tag">$10.25</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-name"><h3>Puerco Frito</h3><p>Sabor criollo bien dorado</p></div>
+                    <div class="price-tag">$13.50</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-name"><h3>Cerdo</h3><p>Porción clásica sazonada</p></div>
+                    <div class="price-tag">$12.00</div>
+                </div>
+            </div>
+            <div class="food-photo">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="Cortes Tradicionales">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-list">
+                <h2 class="category-header">Ensaladas</h2>
+                <div class="item-row">
+                    <div class="item-name"><h3>Berenjena</h3><p>Preparación especial de la casa</p></div>
+                    <div class="price-tag">$8.50</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-name"><h3>Ensalada Verde</h3><p>Mix de hojas frescas de temporada</p></div>
+                    <div class="price-tag">$7.99</div>
+                </div>
+                <div class="item-row">
+                    <div class="item-name"><h3>Ensalada de Pasta</h3><p>Estilo fría con aderezo premium</p></div>
+                    <div class="price-tag">$9.25</div>
+                </div>
+            </div>
+            <div class="food-photo">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Ensaladas Frescas">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide">
+        <div class="main-content">
+            <div class="menu-list" style="flex:2.5;">
+                <h2 class="category-header">Acompañantes</h2>
+                <div class="grid-sides">
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Mangú</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Guandules</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Arroz Blanco</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Habichuelas</div>
+                </div>
             </div>
         </div>
     </div>
@@ -476,7 +410,7 @@
         function reset() {
             fill.style.transition = "none";
             fill.style.width = "0%";
-            fill.offsetHeight; // Forzar reflow en el navegador
+            fill.offsetHeight; 
             fill.style.transition = `width ${time}ms linear`;
             fill.style.width = "100%";
         }
