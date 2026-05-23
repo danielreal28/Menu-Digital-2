@@ -6,7 +6,7 @@
     <title>Blue House - Menú Digital Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -16,7 +16,8 @@
             --blue-house: #003a63;
             --navy-dark: #001221;
             --price-black: #1a1a1a;
-            --text-gray: #444444;
+            --text-dark: #222222;
+            --text-gray: #666666;
             --bg-clean: #ffffff;
             --accent-yellow: #ffcc00;
         }
@@ -92,10 +93,10 @@
             font-size: 1.8rem;
             letter-spacing: 8px;
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        /* 3. CABECERA REFINADA (Logo corporativo estético) */
+        /* 3. CABECERA REFINADA */
         .header-menu {
             height: 16vh;
             width: 100%;
@@ -130,62 +131,59 @@
             justify-content: center;
         }
 
-        /* Títulos de Categoría más balanceados y limpios */
+        /* El cuadro rojo de los títulos regresó con fuerza */
         .category-header {
-            color: #000;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.6rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 25px;
-            letter-spacing: -0.5px;
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        .category-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
             background-color: var(--kfc-red);
+            color: white;
+            padding: 10px 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: inline-block;
+            box-shadow: 8px 8px 0 var(--blue-house);
+            align-self: flex-start;
+            line-height: 1;
+            letter-spacing: -0.5px;
         }
 
-        /* Filas estilizadas y no tan gigantes */
+        /* Diseño profesional y balanceado para los platos */
         .item-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 0;
-            border-bottom: 1px solid #eef2f5;
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .item-name h3 {
+            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
-            color: #111;
+            color: var(--text-dark);
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: -0.3px;
         }
 
         .item-name p {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-gray);
-            font-weight: 500;
-            margin-top: 3px;
+            font-style: italic;
+            font-weight: 400;
+            margin-top: 4px;
         }
 
-        /* Precios estilizados estilo Franquicia */
+        /* Precios limpios estilo Franquicia */
         .price-tag {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             color: var(--price-black);
-            font-weight: 800;
-            background: #f4f6f8;
-            padding: 6px 16px;
+            font-weight: 900;
+            background: #f1f5f9;
+            padding: 6px 18px;
             border-radius: 8px;
+            border: 1px solid #e2e8f0;
         }
 
         /* Caja de Foto Moderna */
@@ -194,7 +192,7 @@
             height: 440px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
             border: 1px solid #eaeaea;
         }
 
@@ -218,7 +216,8 @@
             padding: 22px 25px;
             border-radius: 12px;
             font-size: 1.6rem;
-            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
             color: #1e293b;
             text-transform: uppercase;
             display: flex;
@@ -228,7 +227,7 @@
 
         .side-item i {
             margin-right: 15px;
-            color: var(--blue-house);
+            color: var(--kfc-red);
             font-size: 1.3rem;
         }
 
@@ -427,12 +426,12 @@
             <div class="menu-list" style="flex:2.5;">
                 <h2 class="category-header">Guarniciones</h2>
                 <div class="grid-sides">
-                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Papa Frita</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Tostones</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Puré de Papa</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Mangú de Plátano</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Vegetales al Vapor</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-right"></i> Ensalada César</div>
+                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Papa Frita</div>
+                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Tostones</div>
+                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Puré de Papa</div>
+                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Mangú de Plátano</div>
+                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Vegetales al Vapor</div>
+                    <div class="side-item"><i class="fa-solid fa-square-check"></i> Ensalada César</div>
                 </div>
             </div>
         </div>
