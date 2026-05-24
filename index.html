@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue House - Menú Digital Local</title>
+    <title>Blue House - Menú Digital Inteligente</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -60,6 +60,7 @@
             z-index: 2;
         }
 
+        /* Pantalla de Bienvenida */
         .welcome-slide {
             background: linear-gradient(135deg, var(--blue-house) 0%, var(--navy-dark) 100%);
             justify-content: center;
@@ -93,23 +94,25 @@
             font-weight: 800;
         }
 
+        /* Contenido Principal con Fotos */
         .main-content {
             width: 100%;
             height: 100%;
             display: flex;
-            padding: 50px 80px; 
+            padding: 60px 80px; 
             gap: 60px;
             align-items: center;
             background-color: var(--bg-clean);
+            transition: all 0.5s ease;
         }
 
         .menu-columns {
-            flex: 1.4;
+            flex: 1.3;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            gap: 35px;
             height: 100%;
-            gap: 25px;
         }
 
         .menu-section {
@@ -120,9 +123,9 @@
         .category-header {
             background-color: var(--kfc-red);
             color: white;
-            padding: 10px 24px;
+            padding: 12px 24px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.1rem; 
+            font-size: 2.2rem; 
             font-weight: 900;
             text-transform: uppercase;
             margin-bottom: 18px;
@@ -137,16 +140,15 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .item-element {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: var(--text-dark);
             text-transform: uppercase;
             font-weight: 800;
-            letter-spacing: -0.3px;
             display: flex;
             align-items: center;
         }
@@ -154,22 +156,22 @@
         .item-element i {
             color: var(--kfc-red);
             font-size: 1.1rem;
-            margin-right: 12px;
+            margin-right: 14px;
         }
 
         .item-subtext {
             font-family: 'Lato', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-gray);
             font-weight: 700;
             text-transform: none;
-            margin-left: 5px;
+            margin-left: 8px;
             font-style: italic;
         }
 
         .food-photo-container {
             flex: 1.1;
-            height: 84vh; 
+            height: 82vh; 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
@@ -182,7 +184,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border: 1px solid #eef2f6;
             height: 100%;
-            background-color: #f3f4f6; /* Fondo gris suave por si falta alguna foto */
         }
 
         .food-photo-container img {
@@ -191,20 +192,36 @@
             object-fit: cover;
         }
 
+        /* MODO AUTO-ADAPTABLE: Cuando NO hay imágenes locales en la USB */
+        .full-width-layout .menu-columns {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .full-width-layout .food-photo-container {
+            display: none !important;
+        }
+
+        /* Acompañantes en pantalla completa siempre */
         .grid-sides {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 25px;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 20px;
+            max-width: 1200px;
         }
 
         .side-item {
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            padding: 22px 25px;
+            border: 2px solid #e2e8f0;
+            padding: 25px 30px;
             border-radius: 16px;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             color: #1e293b;
@@ -214,11 +231,12 @@
         }
 
         .side-item i {
-            margin-right: 15px;
+            margin-right: 20px;
             color: var(--blue-house);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
 
+        /* Barra de Progreso */
         .progress-bar {
             height: 8px;
             background: #f0f0f0;
@@ -273,10 +291,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/alitas-1.jpg" alt="Alitas"></div>
-                <div><img src="img/alitas-2.jpg" alt="Alitas BBQ"></div>
-                <div><img src="img/pollo-1.jpg" alt="Pica Pollo"></div>
-                <div><img src="img/pollo-2.jpg" alt="Pollo al Horno"></div>
+                <div><img src="img/alitas-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/alitas-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pollo-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pollo-2.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -306,10 +324,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/cerdo-1.jpg" alt="Cerdo Frito"></div>
-                <div><img src="img/cerdo-2.jpg" alt="Cerdo al Horno"></div>
-                <div><img src="img/cerdo-3.jpg" alt="Filete de Cerdo"></div>
-                <div><img src="img/hamburguesa.jpg" alt="Hamburguesa"></div>
+                <div><img src="img/cerdo-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/cerdo-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/cerdo-3.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/hamburguesa.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -333,10 +351,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/res-1.jpg" alt="Bistec Encebollado"></div>
-                <div><img src="img/res-2.jpg" alt="Bistec Salsa Hongos"></div>
-                <div><img src="img/res-3.jpg" alt="Res a la Criolla"></div>
-                <div><img src="img/burrito.jpg" alt="Burrito de Pollo"></div>
+                <div><img src="img/res-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/res-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/res-3.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/burrito.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -362,10 +380,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/mofongo-1.jpg" alt="Mofongo"></div>
-                <div><img src="img/mofongo-2.jpg" alt="Mofongo Mixto"></div>
-                <div><img src="img/pechuga-1.jpg" alt="Pechuga a la Plancha"></div>
-                <div><img src="img/pechuga-2.jpg" alt="Pechuga Empanizada"></div>
+                <div><img src="img/mofongo-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/mofongo-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pechuga-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pechuga-2.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -397,10 +415,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/camarones-1.jpg" alt="Camarones al Ajillo"></div>
-                <div><img src="img/pescado-1.jpg" alt="Pescado Frito"></div>
-                <div><img src="img/pescado-2.jpg" alt="Pescado Empanizado"></div>
-                <div><img src="img/mariscos.jpg" alt="Cazuela de Mariscos"></div>
+                <div><img src="img/camarones-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pescado-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pescado-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/mariscos.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -426,10 +444,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/pasta-1.jpg" alt="Pasta"></div>
-                <div><img src="img/pasta-2.jpg" alt="Pasta Camarones"></div>
-                <div><img src="img/nachos-1.jpg" alt="Nachos"></div>
-                <div><img src="img/nachos-2.jpg" alt="Nachos Suprema"></div>
+                <div><img src="img/pasta-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/pasta-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/nachos-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/nachos-2.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -456,10 +474,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/picadera-1.jpg" alt="Salami Frito"></div>
-                <div><img src="img/huevo-1.jpg" alt="Huevos Fritos"></div>
-                <div><img src="img/huevo-2.jpg" alt="Revoltillo"></div>
-                <div><img src="img/picadera-2.jpg" alt="Queso Frito"></div>
+                <div><img src="img/picadera-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/huevo-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/huevo-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/picadera-2.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -483,10 +501,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/chofan-1.jpg" alt="Arroz Chofan"></div>
-                <div><img src="img/sandwich-1.jpg" alt="Sandwich Cubano"></div>
-                <div><img src="img/sandwich-2.jpg" alt="Club Sandwich"></div>
-                <div><img src="img/chofan-2.jpg" alt="Arroz Frito"></div>
+                <div><img src="img/chofan-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/sandwich-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/sandwich-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/chofan-2.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
@@ -516,17 +534,17 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="img/ensalada-1.jpg" alt="Ensalada Verde"></div>
-                <div><img src="img/ensalada-2.jpg" alt="Ensalada Cesar Pollo"></div>
-                <div><img src="img/ensalada-3.jpg" alt="Ensalada Cesar Camarones"></div>
-                <div><img src="img/vegetales-vapor.jpg" alt="Vegetales al Vapor"></div>
+                <div><img src="img/ensalada-1.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/ensalada-2.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/ensalada-3.jpg" onerror="validateImg(this)"></div>
+                <div><img src="img/vegetales-vapor.jpg" onerror="validateImg(this)"></div>
             </div>
         </div>
     </div>
 
     <div class="slide">
         <div class="main-content">
-            <div class="menu-columns" style="flex:2.5;">
+            <div class="menu-columns" style="flex:1;">
                 <h2 class="category-header">Acompañantes / Side Dishes</h2>
                 <div class="grid-sides">
                     <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Mangú</div>
@@ -542,11 +560,29 @@
 </div>
 
 <script>
+    // Función para validar imágenes caídas o no existentes
+    function validateImg(img) {
+        img.style.display = 'none'; // Esconde la imagen rota
+        const container = img.closest('.food-photo-container');
+        if (container) {
+            const totalImgs = container.querySelectorAll('img').length;
+            const hiddenImgs = container.querySelectorAll('img[style*="display: none"]').length;
+            
+            // Si todas las imágenes de este contenedor fallaron (están vacías en la USB)
+            if (totalImgs === hiddenImgs) {
+                const mainContent = img.closest('.main-content');
+                if (mainContent) {
+                    mainContent.classList.add('full-width-layout'); // Activa pantalla completa de texto
+                }
+            }
+        }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         const slides = document.querySelectorAll(".slide");
         const fill = document.getElementById("fill");
         let current = 0;
-        const time = 25000;
+        const time = 25000; // Tiempo por pantalla (25 segundos)
 
         function run() {
             slides[current].classList.remove("active");
