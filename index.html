@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue House - Menú Digital Inteligente</title>
+    <title>Blue House Bar Restaurante and Cloud - Menú Digital</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Open+Sans:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         :root {
-            --kfc-red: #d0021b;
-            --blue-house: #003a63;
-            --navy-dark: #001221;
-            --text-dark: #111111;
-            --text-gray: #555555;
+            --red-brand: #d0021b;
+            --blue-brand: #003a63;
+            --dark-bg: #001221;
+            --text-main: #111111;
+            --text-muted: #555555;
             --bg-clean: #ffffff;
-            --accent-yellow: #ffcc00;
+            --yellow-accent: #ffcc00;
         }
 
         * { 
@@ -31,10 +31,10 @@
             height: 100%;
             background-color: #000;
             overflow: hidden;
-            font-family: 'Lato', sans-serif;
+            font-family: 'Open Sans', sans-serif;
         }
 
-        .slider-wrapper {
+        .slider-container {
             width: 100vw;
             height: 100vh;
             position: relative;
@@ -50,7 +50,7 @@
             display: none; 
             flex-direction: column;
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 0.6s ease-in-out;
             z-index: 1;
         }
 
@@ -60,186 +60,149 @@
             z-index: 2;
         }
 
-        /* Pantalla de Bienvenida */
-        .welcome-slide {
-            background: linear-gradient(135deg, var(--blue-house) 0%, var(--navy-dark) 100%);
+        /* Pantalla de Portada / Bienvenida */
+        .welcome-screen {
+            background: linear-gradient(135deg, var(--blue-brand) 0%, var(--dark-bg) 100%);
             justify-content: center;
             align-items: center;
             text-align: center;
         }
 
-        .welcome-container {
-            width: 45%; 
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 25px;
-            backdrop-filter: blur(20px);
+        .welcome-card {
+            width: 50%;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        .welcome-container img {
+        .welcome-card img {
             width: 100%;
             height: auto;
             object-fit: contain;
         }
 
-        .welcome-footer {
-            margin-top: 30px;
-            color: var(--accent-yellow);
+        .welcome-title {
+            margin-top: 25px;
+            color: var(--yellow-accent);
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            letter-spacing: 8px;
+            font-size: 2.5rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 900;
         }
 
-        /* Contenido Principal con Fotos */
-        .main-content {
+        /* Estructura del Menú de Texto (Pantalla Completa) */
+        .menu-layout {
             width: 100%;
             height: 100%;
-            display: flex;
-            padding: 60px 80px; 
-            gap: 60px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Divide la TV exactamente en 2 columnas grandes */
+            gap: 80px;
+            padding: 80px 100px;
             align-items: center;
             background-color: var(--bg-clean);
-            transition: all 0.5s ease;
         }
 
-        .menu-columns {
-            flex: 1.3;
+        /* Formateo para secciones únicas que ocupan todo el ancho (ej. Acompañantes) */
+        .single-layout {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 35px;
+            align-items: flex-start;
+            padding: 80px 120px;
             height: 100%;
         }
 
-        .menu-section {
+        .menu-block {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
-        .category-header {
-            background-color: var(--kfc-red);
+        .category-tag {
+            background-color: var(--red-brand);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem; 
+            font-size: 2.6rem; /* Letras bien grandes para TV */
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 18px;
+            margin-bottom: 25px;
             display: inline-block;
-            box-shadow: 5px 5px 0 var(--blue-house);
+            box-shadow: 6px 6px 0 var(--blue-brand);
             align-self: flex-start;
             line-height: 1;
-            letter-spacing: 0.5px;
         }
 
-        .item-list {
+        .items-container {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
         }
 
-        .item-element {
+        .food-item {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.7rem;
-            color: var(--text-dark);
+            font-size: 2rem; /* Súper legible desde lejos */
+            color: var(--text-main);
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 900;
             display: flex;
             align-items: center;
         }
 
-        .item-element i {
-            color: var(--kfc-red);
-            font-size: 1.1rem;
-            margin-right: 14px;
+        .food-item i {
+            color: var(--red-brand);
+            font-size: 1.2rem;
+            margin-right: 18px;
         }
 
-        .item-subtext {
-            font-family: 'Lato', sans-serif;
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            font-weight: 700;
+        .food-details {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            font-weight: 600;
             text-transform: none;
-            margin-left: 8px;
+            margin-left: 10px;
             font-style: italic;
         }
 
-        .food-photo-container {
-            flex: 1.1;
-            height: 82vh; 
+        /* Rejilla dedicada para la sección de Acompañantes */
+        .sides-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .food-photo-container div {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-            border: 1px solid #eef2f6;
-            height: 100%;
-        }
-
-        .food-photo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* MODO AUTO-ADAPTABLE: Cuando NO hay imágenes locales en la USB */
-        .full-width-layout .menu-columns {
-            flex: 1;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px 80px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .full-width-layout .food-photo-container {
-            display: none !important;
-        }
-
-        /* Acompañantes en pantalla completa siempre */
-        .grid-sides {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 30px;
             width: 100%;
             margin-top: 20px;
-            max-width: 1200px;
         }
 
-        .side-item {
+        .side-box {
             background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            padding: 25px 30px;
-            border-radius: 16px;
-            font-size: 1.8rem;
+            border: 3px solid #e2e8f0;
+            padding: 30px 40px;
+            border-radius: 20px;
+            font-size: 2.2rem;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: #1e293b;
+            font-weight: 900;
+            color: var(--blue-brand);
             text-transform: uppercase;
             display: flex;
             align-items: center;
         }
 
-        .side-item i {
-            margin-right: 20px;
-            color: var(--blue-house);
-            font-size: 1.4rem;
+        .side-box i {
+            margin-right: 25px;
+            color: var(--red-brand);
+            font-size: 1.6rem;
         }
 
-        /* Barra de Progreso */
-        .progress-bar {
-            height: 8px;
-            background: #f0f0f0;
+        /* Barra de progreso inferior */
+        .timeline-bar {
+            height: 10px;
+            background: #e2e8f0;
             width: 100%;
             position: absolute;
             bottom: 0;
@@ -247,312 +210,235 @@
             z-index: 100;
         }
 
-        .progress-fill {
+        .timeline-fill {
             height: 100%;
-            background: var(--blue-house);
+            background: var(--blue-brand);
             width: 0%;
         }
     </style>
 </head>
 <body>
 
-<div class="slider-wrapper">
+<div class="slider-container">
 
-    <div class="progress-bar">
-        <div class="progress-fill" id="fill"></div>
+    <div class="timeline-bar">
+        <div class="timeline-fill" id="progress"></div>
     </div>
 
-    <div class="slide welcome-slide active">
-        <div class="welcome-container">
-            <img src="image_506746.jpg" alt="Bienvenidos a Blue House">
+    <div class="slide welcome-screen active">
+        <div class="welcome-card">
+            <img src="image_506746.jpg" alt="Logo Blue House">
         </div>
-        <div class="welcome-footer">Bar and Restaurante</div>
+        <div class="welcome-title">Bar, Restaurante and Cloud</div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Alitas</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Originales</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> BBQ</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Picantes</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Pollo</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pica Pollo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pechurina</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo al Horno</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Alitas</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Originales</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> BBQ</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Picantes</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/alitas-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/alitas-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pollo-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pollo-2.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Pollo</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Frito</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pica Pollo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pechurina</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pollo al Horno</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Cerdo</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Cerdo al Horno</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Filete de Cerdo</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Con Vegetales</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Hamburguesa</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Clásica de la Casa</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Cerdo</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Frito</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Cerdo al Horno</li>
+                </ul>
+                <h2 class="category-tag" style="margin-top: 40px;">Hamburguesa</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Clásica de la Casa</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/cerdo-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/cerdo-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/cerdo-3.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/hamburguesa.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Filete de Cerdo</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Salteado</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Con Vegetales</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Res (Bistec)</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Encebollado</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> En Salsa de Hongo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Criolla</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Burrito</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Burrito de Pollo</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Res (Bistec)</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Encebollado</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> En Salsa de Hongo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> A la Criolla</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/res-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/res-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/res-3.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/burrito.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Burrito</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Burrito de Pollo</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Mofongo de</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Pechuga</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Empanizadas</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Plancha</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteada</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Mofongo de</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Res</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pollo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Camarones</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/mofongo-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/mofongo-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pechuga-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pechuga-2.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Pechuga</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Empanizadas</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> A la Plancha</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Salteada</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Camarones</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Al Ajillo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Crema</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Pescado</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pescado Empanizado</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Mariscos</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Cazuela de Marisco</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Camarones</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Al Ajillo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> A la Cream</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Salteado</li>
+                </ul>
+                <h2 class="category-tag" style="margin-top: 40px;">Mariscos</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Cazuela de Marisco</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/camarones-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pescado-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pescado-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/mariscos.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Pescado</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Frito</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Salteado</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pescado Empanizado</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Pasta de</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Nachos de</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Pasta de</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pollo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Res</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Camarones</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/pasta-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/pasta-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/nachos-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/nachos-2.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Nachos de</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Res</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pollo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Camarones</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Picaderas Fritas</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salami <span class="item-subtext">(Frito / Guisado)</span></li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Jamoneta Frita</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Queso Frito</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Huevo</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Frito</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Revoltillo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Tortilla</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Picaderas Fritas</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Salami <span class="food-details">(Frito / Guisado)</span></li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Jamoneta Frita</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Queso Frito</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/picadera-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/huevo-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/huevo-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/picadera-2.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Huevo</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Frito</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Salteado</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Revoltillo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Tortilla</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Sándwich</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Cubano</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Club Sandwich</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Especialidades de Arroz</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Arroz Frito</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Chofan <span class="item-subtext">(Mixto / Res / Pollo)</span></li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Sándwich</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Cubano</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Club Sandwich</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/chofan-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/sandwich-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/sandwich-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/chofan-2.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Especialidades de Arroz</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Arroz Frito</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Chofan <span class="food-details">(Mixto / Res / Pollo)</span></li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns">
-                <div class="menu-section">
-                    <h2 class="category-header">Ensaladas</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Ensalada Verde</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Ensalada César de</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Pollo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Res</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Camarones</li>
-                    </ul>
-                </div>
-                <div class="menu-section">
-                    <h2 class="category-header">Vegetales</h2>
-                    <ul class="item-list">
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Al Vapor</li>
-                    </ul>
-                </div>
+        <div class="menu-layout">
+            <div class="menu-block">
+                <h2 class="category-tag">Ensaladas</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Ensalada Verde</li>
+                </ul>
+                <h2 class="category-tag" style="margin-top: 40px;">Vegetales</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Al Vapor</li>
+                </ul>
             </div>
-            <div class="food-photo-container">
-                <div><img src="img/ensalada-1.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/ensalada-2.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/ensalada-3.jpg" onerror="validateImg(this)"></div>
-                <div><img src="img/vegetales-vapor.jpg" onerror="validateImg(this)"></div>
+            <div class="menu-block">
+                <h2 class="category-tag">Ensalada César de</h2>
+                <ul class="items-container">
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Pollo</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Res</li>
+                    <li class="food-item"><i class="fa-solid fa-square"></i> Camarones</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <div class="slide">
-        <div class="main-content">
-            <div class="menu-columns" style="flex:1;">
-                <h2 class="category-header">Acompañantes / Side Dishes</h2>
-                <div class="grid-sides">
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Mangú</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Guandules</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Arroz Blanco</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Habichuelas</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Papa Salteada</div>
-                </div>
+        <div class="single-layout">
+            <h2 class="category-tag">Acompañantes / Side Dishes</h2>
+            <div class="sides-grid">
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Mangú</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Guandules</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Arroz Blanco</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Habichuelas</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Papa Frita</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Tostones</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Puré de Papa</div>
+                <div class="side-box"><i class="fa-solid fa-circle-arrow-right"></i> Papa Salteada</div>
             </div>
         </div>
     </div>
@@ -560,47 +446,29 @@
 </div>
 
 <script>
-    // Función para validar imágenes caídas o no existentes
-    function validateImg(img) {
-        img.style.display = 'none'; // Esconde la imagen rota
-        const container = img.closest('.food-photo-container');
-        if (container) {
-            const totalImgs = container.querySelectorAll('img').length;
-            const hiddenImgs = container.querySelectorAll('img[style*="display: none"]').length;
-            
-            // Si todas las imágenes de este contenedor fallaron (están vacías en la USB)
-            if (totalImgs === hiddenImgs) {
-                const mainContent = img.closest('.main-content');
-                if (mainContent) {
-                    mainContent.classList.add('full-width-layout'); // Activa pantalla completa de texto
-                }
-            }
-        }
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
         const slides = document.querySelectorAll(".slide");
-        const fill = document.getElementById("fill");
-        let current = 0;
-        const time = 25000; // Tiempo por pantalla (25 segundos)
+        const progressFill = document.getElementById("progress");
+        let currentSlide = 0;
+        const displayTime = 20000; // 20 segundos por pantalla para que la gente lea bien
 
-        function run() {
-            slides[current].classList.remove("active");
-            current = (current + 1) % slides.length;
-            slides[current].classList.add("active");
-            reset();
+        function changeSlide() {
+            slides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add("active");
+            startProgressBar();
         }
 
-        function reset() {
-            fill.style.transition = "none";
-            fill.style.width = "0%";
-            fill.offsetHeight; 
-            fill.style.transition = `width ${time}ms linear`;
-            fill.style.width = "100%";
+        function startProgressBar() {
+            progressFill.style.transition = "none";
+            progressFill.style.width = "0%";
+            progressFill.offsetHeight; // Truco para resetear la animación en el navegador
+            progressFill.style.transition = `width ${displayTime}ms linear`;
+            progressFill.style.width = "100%";
         }
 
-        reset();
-        setInterval(run, time);
+        startProgressBar();
+        setInterval(changeSlide, displayTime);
     });
 </script>
 
