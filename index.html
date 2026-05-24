@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue House - Menú Digital Completo</title>
+    <title>Blue House - Menú Digital Local</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* 1. SETUP DE PANTALLA COMPLETA TOTAL */
         :root {
             --kfc-red: #d0021b;
             --blue-house: #003a63;
@@ -61,7 +60,6 @@
             z-index: 2;
         }
 
-        /* 2. BIENVENIDA (ÚNICA CON FONDO OSCURO DE MARCA) */
         .welcome-slide {
             background: linear-gradient(135deg, var(--blue-house) 0%, var(--navy-dark) 100%);
             justify-content: center;
@@ -95,7 +93,6 @@
             font-weight: 800;
         }
 
-        /* 3. ÁREA DE CONTENIDO LIMPIO A PANTALLA COMPLETA */
         .main-content {
             width: 100%;
             height: 100%;
@@ -120,7 +117,6 @@
             flex-direction: column;
         }
 
-        /* Cuadro rojo con sombra azul marino icónico */
         .category-header {
             background-color: var(--kfc-red);
             color: white;
@@ -137,7 +133,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Listas de platos limpias y pulcras */
         .item-list {
             list-style: none;
             display: flex;
@@ -172,7 +167,6 @@
             font-style: italic;
         }
 
-        /* Contenedor de Fotos Laterales Refinado (Multi-imágenes por slide) */
         .food-photo-container {
             flex: 1.1;
             height: 84vh; 
@@ -188,6 +182,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.06);
             border: 1px solid #eef2f6;
             height: 100%;
+            background-color: #f3f4f6; /* Fondo gris suave por si falta alguna foto */
         }
 
         .food-photo-container img {
@@ -196,7 +191,6 @@
             object-fit: cover;
         }
 
-        /* GRID ESPECIAL PARA ACOMPAÑANTES Y VEGETALES */
         .grid-sides {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -217,7 +211,6 @@
             text-transform: uppercase;
             display: flex;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.01);
         }
 
         .side-item i {
@@ -226,7 +219,6 @@
             font-size: 1.3rem;
         }
 
-        /* BARRA INFERIOR DE PROGRESO DE TIEMPO */
         .progress-bar {
             height: 8px;
             background: #f0f0f0;
@@ -281,10 +273,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1608039829572-78524f79c4c7?q=80&w=400&auto=format&fit=crop" alt="Alitas Buffalo"></div>
-                <div><img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?q=80&w=400&auto=format&fit=crop" alt="Alitas BBQ"></div>
-                <div><img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=400&auto=format&fit=crop" alt="Pica Pollo frito"></div>
-                <div><img src="https://images.unsplash.com/photo-1598103442097-8b74394b98c6?q=80&w=400&auto=format&fit=crop" alt="Pollo asado entero"></div>
+                <div><img src="img/alitas-1.jpg" alt="Alitas"></div>
+                <div><img src="img/alitas-2.jpg" alt="Alitas BBQ"></div>
+                <div><img src="img/pollo-1.jpg" alt="Pica Pollo"></div>
+                <div><img src="img/pollo-2.jpg" alt="Pollo al Horno"></div>
             </div>
         </div>
     </div>
@@ -314,10 +306,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Carnes Blue House"></div>
-                <div><img src="https://images.unsplash.com/photo-1602489114471-de153f3f278a?q=80&w=400&auto=format&fit=crop" alt="Cerdo asado"></div>
-                <div><img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?q=80&w=400&auto=format&fit=crop" alt="Filete de cerdo salteado"></div>
-                <div><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&auto=format&fit=crop" alt="Hamburguesa gourmet"></div>
+                <div><img src="img/cerdo-1.jpg" alt="Cerdo Frito"></div>
+                <div><img src="img/cerdo-2.jpg" alt="Cerdo al Horno"></div>
+                <div><img src="img/cerdo-3.jpg" alt="Filete de Cerdo"></div>
+                <div><img src="img/hamburguesa.jpg" alt="Hamburguesa"></div>
             </div>
         </div>
     </div>
@@ -341,10 +333,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=400&auto=format&fit=crop" alt="Bistec encebollado"></div>
-                <div><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Bistec en salsa de hongos"></div>
-                <div><img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=400&auto=format&fit=crop" alt="Guiso de res"></div>
-                <div><img src="https://images.unsplash.com/photo-1626700051175-6518c4793f4f?q=80&w=400&auto=format&fit=crop" alt="Burrito de pollo"></div>
+                <div><img src="img/res-1.jpg" alt="Bistec Encebollado"></div>
+                <div><img src="img/res-2.jpg" alt="Bistec Salsa Hongos"></div>
+                <div><img src="img/res-3.jpg" alt="Res a la Criolla"></div>
+                <div><img src="img/burrito.jpg" alt="Burrito de Pollo"></div>
             </div>
         </div>
     </div>
@@ -370,10 +362,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&auto=format&fit=crop" alt="Mofongo de carne"></div>
-                <div><img src="https://images.unsplash.com/photo-1603048588665-791ca8aea617?q=80&w=400&auto=format&fit=crop" alt="Plato criollo frito"></div>
-                <div><img src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?q=80&w=400&auto=format&fit=crop" alt="Pechuga de pollo grillada"></div>
-                <div><img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?q=80&w=400&auto=format&fit=crop" alt="Pechuga de pollo empanizada"></div>
+                <div><img src="img/mofongo-1.jpg" alt="Mofongo"></div>
+                <div><img src="img/mofongo-2.jpg" alt="Mofongo Mixto"></div>
+                <div><img src="img/pechuga-1.jpg" alt="Pechuga a la Plancha"></div>
+                <div><img src="img/pechuga-2.jpg" alt="Pechuga Empanizada"></div>
             </div>
         </div>
     </div>
@@ -385,7 +377,7 @@
                     <h2 class="category-header">Camarones</h2>
                     <ul class="item-list">
                         <li class="item-element"><i class="fa-solid fa-circle"></i> Al Ajillo</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Cream</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> A la Crema</li>
                         <li class="item-element"><i class="fa-solid fa-circle"></i> Salteado</li>
                     </ul>
                 </div>
@@ -405,10 +397,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=400&auto=format&fit=crop" alt="Camarones al ajillo"></div>
-                <div><img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400&auto=format&fit=crop" alt="Pescado entero o filete de salmon"></div>
-                <div><img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=400&auto=format&fit=crop" alt="Filete de pescado empanizado"></div>
-                <div><img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?q=80&w=400&auto=format&fit=crop" alt="Cazuela de mariscos o sopa"></div>
+                <div><img src="img/camarones-1.jpg" alt="Camarones al Ajillo"></div>
+                <div><img src="img/pescado-1.jpg" alt="Pescado Frito"></div>
+                <div><img src="img/pescado-2.jpg" alt="Pescado Empanizado"></div>
+                <div><img src="img/mariscos.jpg" alt="Cazuela de Mariscos"></div>
             </div>
         </div>
     </div>
@@ -434,10 +426,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=400&auto=format&fit=crop" alt="Pasta alfredo cremosa"></div>
-                <div><img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400&auto=format&fit=crop" alt="Pasta con camarones"></div>
-                <div><img src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?q=80&w=400&auto=format&fit=crop" alt="Nachos Tex-Mex tradicionales"></div>
-                <div><img src="https://images.unsplash.com/photo-1615870216519-2f9fa575fa5c?q=80&w=400&auto=format&fit=crop" alt="Nachos gourmet cargados"></div>
+                <div><img src="img/pasta-1.jpg" alt="Pasta"></div>
+                <div><img src="img/pasta-2.jpg" alt="Pasta Camarones"></div>
+                <div><img src="img/nachos-1.jpg" alt="Nachos"></div>
+                <div><img src="img/nachos-2.jpg" alt="Nachos Suprema"></div>
             </div>
         </div>
     </div>
@@ -464,10 +456,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400&auto=format&fit=crop" alt="Frituras mixtas"></div>
-                <div><img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=400&auto=format&fit=crop" alt="Huevos fritos"></div>
-                <div><img src="https://images.unsplash.com/photo-1598214813160-c3d318357a7d?q=80&w=400&auto=format&fit=crop" alt="Huevos revueltos"></div>
-                <div><img src="https://images.unsplash.com/photo-1616147498305-6eb7f7b3c2c5?q=80&w=400&auto=format&fit=crop" alt="Antojo frito frito criollo"></div>
+                <div><img src="img/picadera-1.jpg" alt="Salami Frito"></div>
+                <div><img src="img/huevo-1.jpg" alt="Huevos Fritos"></div>
+                <div><img src="img/huevo-2.jpg" alt="Revoltillo"></div>
+                <div><img src="img/picadera-2.jpg" alt="Queso Frito"></div>
             </div>
         </div>
     </div>
@@ -479,7 +471,7 @@
                     <h2 class="category-header">Sándwich</h2>
                     <ul class="item-list">
                         <li class="item-element"><i class="fa-solid fa-circle"></i> Cubano</li>
-                        <li class="item-element"><i class="fa-solid fa-circle"></i> Clud Sandwich</li>
+                        <li class="item-element"><i class="fa-solid fa-circle"></i> Club Sandwich</li>
                     </ul>
                 </div>
                 <div class="menu-section">
@@ -491,10 +483,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=80&w=400&auto=format&fit=crop" alt="Arroz chofan mixto"></div>
-                <div><img src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&auto=format&fit=crop" alt="Sándwich Cubano"></div>
-                <div><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=400&auto=format&fit=crop" alt="Club Sandwich"></div>
-                <div><img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=400&auto=format&fit=crop" alt="Arroz frito con camarones"></div>
+                <div><img src="img/chofan-1.jpg" alt="Arroz Chofan"></div>
+                <div><img src="img/sandwich-1.jpg" alt="Sandwich Cubano"></div>
+                <div><img src="img/sandwich-2.jpg" alt="Club Sandwich"></div>
+                <div><img src="img/chofan-2.jpg" alt="Arroz Frito"></div>
             </div>
         </div>
     </div>
@@ -524,10 +516,10 @@
                 </div>
             </div>
             <div class="food-photo-container">
-                <div><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop" alt="Ensalada verde fresca"></div>
-                <div><img src="https://images.unsplash.com/photo-1550304943-4f24f54ddde9?q=80&w=400&auto=format&fit=crop" alt="Ensalada César de Pollo grillada"></div>
-                <div><img src="https://images.unsplash.com/photo-1511993226957-cd166aba52d8?q=80&w=400&auto=format&fit=crop" alt="Ensalada César de Camarones"></div>
-                <div><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=400&auto=format&fit=crop" alt="Mix de vegetales frescos al vapor"></div>
+                <div><img src="img/ensalada-1.jpg" alt="Ensalada Verde"></div>
+                <div><img src="img/ensalada-2.jpg" alt="Ensalada Cesar Pollo"></div>
+                <div><img src="img/ensalada-3.jpg" alt="Ensalada Cesar Camarones"></div>
+                <div><img src="img/vegetales-vapor.jpg" alt="Vegetales al Vapor"></div>
             </div>
         </div>
     </div>
@@ -541,7 +533,7 @@
                     <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Guandules</div>
                     <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Arroz Blanco</div>
                     <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Habichuelas</div>
-                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Papá Salteada</div>
+                    <div class="side-item"><i class="fa-solid fa-circle-chevron-right"></i> Papa Salteada</div>
                 </div>
             </div>
         </div>
@@ -566,7 +558,7 @@
         function reset() {
             fill.style.transition = "none";
             fill.style.width = "0%";
-            fill.offsetHeight; // Forzar reflow del navegador
+            fill.offsetHeight; 
             fill.style.transition = `width ${time}ms linear`;
             fill.style.width = "100%";
         }
